@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Twitter Sentiment Analyzer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e6ecf0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      width: 400px;
+      text-align: center;
+    }
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      resize: none;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #1da1f2;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Twitter Sentiment Analyzer</h2>
+    <form id="analyze-form">
+      <textarea id="tweet-input" rows="4" placeholder="Enter tweet or text here..."></textarea>
+      <br>
+      <button type="submit">Analyze Sentiment</button>
+    </form>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    document.getElementById('analyze-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const text = document.getElementById('tweet-input').value;
+
+      // Simulated result (replace with actual API call)
+      let resultText = '';
+      if (text.includes('happy') || text.includes('good')) {
+        resultText = '😊 Positive';
+      } else if (text.includes('bad') || text.includes('sad')) {
+        resultText = '☹️ Negative';
+      } else {
+        resultText = '😐 Neutral';
+      }
+
+      document.getElementById('result').innerText = `Sentiment: ${resultText}`;
+    });
+  </script>
+</body>
+</html>
